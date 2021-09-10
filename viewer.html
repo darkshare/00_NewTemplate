@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+        <title>여기에 교재명 들어감.</title>
+        <meta charset="UTF-8" />
+        <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+        <script language="javascript" src="js/jquery.tools.min-1.2.5.js"></script>
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <link rel="stylesheet" type="text/css" href="css/layout.css" />
+        <link rel="stylesheet" type="text/css" href="css/viewer.css" />
+    </head>
+<body>
+
+	<div id="wrap">
+        
+        <!--Book Start-->
+        <div class="bookwrap" style="height:100vh;">
+        	<div class="pagearrow"><img src="img/pagearrow_prev.png" title="Previous Page" /></div>
+            
+            <div class="con" style="width:calc(100vw - 100px);height:calc(100vh - 40px);">
+            	
+                <div id="page1" class="page" style="width:calc((100vw - 100px)/2);height:calc(100vh - 40px);">
+                	<!--svg 옵션 중 preserveAspectRatio="xMaxYMin meet"는 cover인 경우 안나오며 홀수페이지인경우 나옴. 짝수페이지는 preserveAspectRatio="xMinYMin meet" -->
+                    <svg xmlns="http://w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.2" baseProfile="tiny" id="" x="0px" y="0px" preserveAspectRatio="xMaxYMin meet" viewbox="0 0 1246 1653" xml:space="preserve" style="width:100%;height:100%;">
+                        <!--부분확대용 돋보기 배경 이미지 정의-->
+                        <defs>
+                            <pattern id="zoom_bg" width="1" height="1">
+                              <image href="img/ico_zoom2.png" x="1040" y="5" width="60" height="60" style="opacity: 0.5;" />
+                            </pattern>
+                        </defs>
+
+                        <image width="100%" height="100%" xlink:href="img/page/page3.jpg" style="box-shadow:0px 0px 8px;" />
+					</svg>
+                </div>
+                
+                <div id="page2" class="page" style="width:calc((100vw - 100px)/2);height:calc(100vh - 40px);">
+                	<!--svg 옵션 중 preserveAspectRatio="xMaxYMin meet"는 cover인 경우 안나오며 홀수페이지인경우 나옴. 짝수페이지는 preserveAspectRatio="xMinYMin meet" -->
+                    <svg xmlns="http://w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.2" baseProfile="tiny" id="" x="0px" y="0px" preserveAspectRatio="xMinYMin meet" viewbox="0 0 1246 1653" xml:space="preserve" style="width:100%;height:100%;">
+                    	<image width="100%" height="100%" xlink:href="img/page/page4.jpg" style="box-shadow:0px 0px 8px;"></image>
+                        
+                        <!--부분확대용 사각형 박스/ M 가로 세로 시작위치 h 가로크기 v 세로크기 h 가로크기 Z 끝점과 시작점 잇기 / fill=돋보기bg-->
+                        <path d="M 70 70 h 1100 v 330 h -1100 Z" stroke="gray" fill="url(#zoom_bg)" stroke-dasharray="4, 4" style="cursor: pointer;" rel="#mies1" />
+                        <path d="M 70 410 h 1100 v 330 h -1100 Z" stroke="gray" fill="url(#zoom_bg)" stroke-dasharray="4, 4" style="cursor: pointer;" rel="#mies2" />
+                        <!--부분확대 끝-->
+
+					</svg>
+                </div>
+                
+            </div>
+            
+        	<div class="pagearrow"><img src="img/pagearrow_next.png" title="Next Page" /></div>
+        </div>
+        
+        <!--해상도 1500 이하 가로 사이즈 크게 조정-->
+        <div id="mies1" style="display:none;position:absolute;width:100vw;height:100vh; left:0; overflow: hidden;">
+            <div style="background-color:#fff; width:70vw; height:84vh; margin:0 auto; border:3px solid #fac71b;margin-top: 8vh;position: relative;">
+                <!-- onClick="ModalClose2(0) 영역은 순서에 따라 ()안의 숫자가 바뀜 "(0)부터 시작" -->
+                <div style="position:absolute; top:-25px; right: -25px; cursor:pointer;"><img src="img/close.png" alt="Close" onClick="ModalClose(0);" /></div>
+                <div style="vertical-align:middle; text-align:center;height:100%;">
+                        <iframe id="iframe_zoom" border="0" frameborder="0" src="page11_2.html" scrolling="no" style="width:100%;height:100%;"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div id="mies2" class="zoomPart" style="display:none;position:absolute;width:100%;height:100%; left:0;">
+            <div class="partTable" style="background-color:#fff; width:70vw; height:84vh; margin:0 auto; border:3px solid #fac71b;margin-top: 8vh;position: relative;">
+                <!-- onClick="ModalClose2(0) 영역은 순서에 따라 ()안의 숫자가 바뀜 "(0)부터 시작" -->
+                <div class="closeBtn2" style="position:absolute; top:-25px; right: -25px; cursor:pointer;"><img src="img/close.png" alt="Close" onClick="ModalClose(1);" /></div>
+                <div class="partTablecell" style="vertical-align:middle; text-align:center;height:100%;">
+                        <!--스크롤이 생기는 경우 세로값은 이미지 세로크기, 스크롤 안생기는 경우 세로값은 662px-->
+                        <!-- src="../partZoom/page6_1.html" 부분확대 링크 위치 -->
+                        <iframe id="iframe_zoom" border="0" frameborder="0" src="page11_2.html" scrolling="no" style="width:100%;height:100%;"></iframe>
+                </div>
+            </div>
+        </div>
+                
+        <!--단어장 Start>
+        <div class="wordlist">
+        	<p class="word_eng">abc</p>
+        	<p class="word_kor">n. defg hijk lmn opqr stu vw xyz defg hijk lmn opqr stu vw xyz defg hijk lmn opqr stu vw xyz</p>
+            <p class="word_img"><img src="img/word/hide.jpg" width="100%" /></p>
+        </div>
+        <단어장 End-->
+        
+        <!--Book End-->
+                
+        <!--Thumbnail Start-->
+        <!--div class="thumbnail">
+            <input type="checkbox" name="one" id="item-1">
+        	<label for="item-1" class="thum_title"></label>
+            <div class="thum_wrap">
+            	<ul class="thum_img">
+                	<li class="w26 tal"><img src="img/thumbnail/arrow_prev.png" title="Previous" /></li>
+                	<li class="thumbpage"><img src="img/thumbnail/page1.png" title="Page 1" /><img src="img/thumbnail/page2.png" title="Page 2" /><img src="img/thumbnail/page2.png" title="Page 3" /><img src="img/thumbnail/page2.png" title="Page 4" /><img src="img/thumbnail/page2.png" title="Page 5" /><img src="img/thumbnail/page2.png" title="Page 6" /><img src="img/thumbnail/page2.png" title="Page 7" />
+                    </li>
+                	<li class="w26 tar"><img src="img/thumbnail/arrow_next.png" title="Next" /></li>
+                </ul>
+            </div>
+        </!--div>
+        <!--Thumbnail End-->
+        
+    </div>
+
+    <script type="text/javascript">
+        window.addEventListener('load', function() { window.scrollTo(0,1); }, false);
+            var overlay;
+            function Overlay() {
+                overlay = $("path[rel]").overlay({
+                    top:0,
+                    mask: {
+                        color: '#000',
+                        loadSpeed: 200,
+                        opacity: 0.5
+                    },
+                    closeOnClick: false
+                });	
+            }
+            
+
+            function ModalClose(i) {
+                var id = 1 + i;
+                
+                $("#mies"+id).find("#iframe_zoom")[0].contentWindow.postMessage("audio", "*");
+                
+                location.reload();
+                
+                $('.zoomPart').hide();
+                overlay.eq(i).overlay().close(); 
+            }
+
+        $(document).ready(function() {
+                Overlay();
+            });
+            
+        </script>
+        
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Smart English Starter - Interactive e-Book for Classroom</title>
+<link href="../css/flashcard.css" rel="stylesheet" type="text/css" />
+<link href="../css/rolling.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
+<script src="../js/slides.min.jquery.js"></script>
+	<script>
+		
+		function randomCard() {
+			//flash card 이름 적어주면 됨 
+			var data = new Array("board","bookcase","chair","desk");
+			data.sort(function(){return Math.random()-Math.random();});
+			
+			for(var i=0;i<data.length;i++) {
+				var card = data[i];
+				var tmp = "";
+				
+				tmp += "<div class=\"slide\">";
+				tmp += "<div class=\"slide_img\">";
+				tmp += "<img src=\"../img/flashcard/" + card + ".jpg\" onClick=\"FI_word('" + card + "');\" />";
+				tmp += "<img src=\"../img/flashcard/" + card + "_word.jpg\" id=\"" + card + "\" class=\"word\" onClick=\"FO_word('" + card + "');\" />";
+				tmp += "</div>";
+				tmp += "<div class=\"cardsound\"><img src=\"../img/card_sound.png\" alt=\"audio\" onClick=\"aud_play_pause('../audio/flashcard/F_" + card + ".mp3','1_" + (i+1) + "');\" id=\"1_" + (i+1) + "\" /></div>";
+				tmp += "</div>";
+				
+
+				$("#slides_container").append(tmp);
+			}
+		}
+		
+		$(function(){
+			
+			randomCard();
+			
+			// Set starting slide to 1
+			var startSlide = 1;
+			// Get slide number if it exists
+			if (window.location.hash) {
+				startSlide = window.location.hash.replace('#','');
+			}
+			// Initialize Slides
+			$('#slides').slides({
+				preload: true,
+				preloadImage: '../img/loading.gif',
+				generatePagination: false,
+				play: false,
+				pause: 2500,
+				hoverPause: true,
+				// Get the starting slide
+				start: startSlide,
+				animationStart: function() {
+            		var audio = $("#myAudio").get(0);
+					audio.pause();
+        		},
+				animationComplete: function(current){
+					// Set the slide number as a hash
+					window.location.hash = '#' + current;
+				}
+			});
+					
+		});
+		
+	</script>
+</head>
+
+<body>
+<div style="width: 100%;height:100%;">
+
+	<div id="container">
+		<div id="example">
+			<div id="slides">
+				<div class="slides_container" id="slides_container">
+					<!--
+					<div class="slide">
+                   		<!- Flash card 이미지 ->
+						<img src="../images/flashcard/bag.jpg" onClick="FI_word('bag');" />
+                     	<!- Flash card word이미지 ->  
+                        <img src="../images/flashcard/bag_word.jpg" id="bag" class="word" onClick="FO_word('bag');" />
+                        <!- Flash card 오디오 ->
+                        <div class="cardsound"><img src="../images/icon/card_sound.png" alt="audio" onClick="aud_play_pause('../audio/flashcard/F_bag.mp3','1_1');" id="1_1" /></div>
+					</div>
+					<div class="slide">
+						<img src="../images/flashcard/pen.jpg" onClick="FI_word('pen');" />
+                        <img src="../images/flashcard/pen_word.jpg" id="pen" class="word" onClick="FO_word('pen');" />
+                        <div class="cardsound"><img src="../images/icon/card_sound.png" alt="audio" onClick="aud_play_pause('../audio/flashcard/F_pen.mp3','1_4');" id="1_4" /></div>
+					</div>
+					<div class="slide">
+						<img src="../images/flashcard/book.jpg" onClick="FI_word('book');" />
+                        <img src="../images/flashcard/book_word.jpg" id="book" class="word" onClick="FO_word('book');" />
+                        <div class="cardsound"><img src="../images/icon/card_sound.png" alt="audio" onClick="aud_play_pause('../audio/flashcard/F_book.mp3','1_2');" id="1_2" /></div>
+					</div>
+					<div class="slide">
+						<img src="../images/flashcard/crayon.jpg" onClick="FI_word('crayon');" />
+                        <img src="../images/flashcard/crayon_word.jpg" id="crayon" class="word" onClick="FO_word('crayon');" />
+                        <div class="cardsound"><img src="../images/icon/card_sound.png" alt="audio" onClick="aud_play_pause('../audio/flashcard/F_crayon.mp3','1_3');" id="1_3" /></div>
+					</div>
+					-->
+				</div>
+				<a href="#" class="prev"><img src="../img/prev.png" alt="Arrow Prev"></a>
+				<a href="#" class="next"><img src="../img/next.png" alt="Arrow Next"></a>
+			</div>
+		</div>
+	</div>
+        
+        <audio id="myAudio">
+        	<source src="">
+        </audio>
+</div>
+
+<script src="../js/flashcard.js"></script>
+</body>
+</html>

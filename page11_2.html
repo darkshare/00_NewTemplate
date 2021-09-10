@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width;height=device-height; initial-scale=1.0; maximum-scale=1.0;" />  
+<title>Smart English 1 - Interactive e-Book for Classroom</title>
+<link href="../zoomPart.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="js/jquery-1.8.3.js"></script>
+<script language="javascript" src="js/jquery.tools.min-1.2.5.js"></script>
+<script language="javascript" src="js/func.js"></script>
+</head>
+
+<body style="width: 100%; height: 100%;margin:0;">
+
+
+<!-- <div class="drag0 drag1"> 에서 "drag0은 고정 뒤에 drag1만 숫자 변경함" -->
+<div style="width: 100%; height: 100%; position: absolute;">
+
+	<div style="top: 10px; right:10px; position: absolute;">
+		<audio controls controlsList='nodownload' style="width:30vw; height:5vh" >
+		<source src="LS1_7_B.mp3">
+		</audio>
+	</div>
+
+<!-- answer Button -->
+<svg xmlns="http://w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.2" baseProfile="tiny" id="" x="0px" y="0px" preserveAspectRatio="xMidYMin meet" viewbox="0 0 1380 929" xml:space="preserve" style="width:100%;height:100%;">
+	<image width="100%" xlink:href="img/page/zoom1.jpg" />
+
+	<image x="180" y="358" width="3%" xlink:href="img/play_s.png" onClick="aud_play_pause2('LS1_7_B1.mp3','7_B1');" id="7_B1" />
+	<image x="490" y="358" width="3%" xlink:href="img/play_s.png" onClick="aud_play_pause2('LS1_7_B2.mp3','7_B2');" id="7_B2" />
+	<image x="800" y="358" width="3%" xlink:href="img/play_s.png" onClick="aud_play_pause2('LS1_7_B3.mp3','7_B3');" id="7_B3" />
+	<image x="1110" y="358" width="3%" xlink:href="img/play_s.png" onClick="aud_play_pause2('LS1_7_B4.mp3','7_B4');" id="7_B4" />
+
+	<image x="880" y="260" width="4.2%" xlink:href="img/answer.png" style="cursor: pointer;" onClick="viewanswer('answer1');" />
+	
+	<text id="paragraph1" font-size="35" style="fill: red; font-weight:bold; display:none;" class="answer1"> 
+		<tspan x="135" y="392">4</tspan>
+		<tspan x="755" y="392">3</tspan>
+		<tspan x="1065" y="392">2</tspan>
+	</text>
+
+	<image x="950" y="260" width="4.2%" xlink:href="img/card.png" style="cursor: pointer;" rel="#mies2"  />
+	
+</svg>
+
+<!--Answer Area img >
+  <div style="top: 123px; left: 87px;display:none;" class="answer1"><img src="../images/answer/11_2.png" alt="answer1" ></div-->
+  
+  
+
+</div>
+  
+  
+     
+  <!-- 카드 링크 >
+  <div-- id="mies1" style="display:none; position:absolute; width: 100%; height: 100%; left:0; top: 0 !important;">
+	<div class="closeBtn"><img src="img/close.png" alt="Close" onClick="ModalClose();" /></div>
+	<iframe border="0" frameborder="0" src="../card/page1.html" scrolling="no" style="width:704px;height:526px;"></iframe>
+  </div-->
+
+  <div id="mies1" style="display:none;position:absolute;width:100%;height:100%; left:0;top: 0px;margin-top:-10vh;">
+	<div style="position: relative;width:100%;height:100%;">
+		<!-- onClick="ModalClose2(0) 영역은 순서에 따라 ()안의 숫자가 바뀜 "(0)부터 시작" -->
+		<div style="position:absolute; top:8vh; right: 17vw; cursor:pointer;"><img src="img/close.png" alt="Close" onClick="ModalClose();" /></div>
+		<div style="vertical-align:middle; text-align:center;height:100%;">
+				<!--스크롤이 생기는 경우 세로값은 이미지 세로크기, 스크롤 안생기는 경우 세로값은 662px-->
+				<!-- src="../partZoom/page6_1.html" 부분확대 링크 위치 -->
+				<iframe border="0" frameborder="0" src="card/page1.html" scrolling="no" style="width:100%;height:100%;"></iframe>
+			</div>
+	</div>
+</div>
+
+<!--div id="mies1" style="display:none;position:absolute;width:100%;height:100%; left:0;top: 0px;margin-top:-10vh;">
+	<div style="background-color:#fff; width:62vw; height:70vh; margin:0 auto; border:3px solid #fac71b;margin-top: 14vh;position: relative;">
+		<div style="position:absolute; top:-25px; right: -25px; cursor:pointer;"><img src="img/close.png" alt="Close" onClick="ModalClose();" /></div>
+		<div style="vertical-align:middle; text-align:center;height:100%;">
+				<iframe border="0" frameborder="0" src="card/page1.html" scrolling="no" style="width:100%;height:100%;"></iframe>
+			</div>
+	</div>
+</div-->
+
+  
+  <!-- game >
+  <div-- style="top: 217px; left: 725px;"><img src="img/game.png" alt="Game" rel="#mies2" /></div-->  
+
+
+  <!-- 게임 링크 -->
+  <div id="mies2" class="game" style="display:none;position:absolute;width:100%;height:100%; left:0;top: 0px;margin-top:-10vh;">
+	<div style="position: relative;width:100%;height:100%;">
+		<!-- onClick="ModalClose2(0) 영역은 순서에 따라 ()안의 숫자가 바뀜 "(0)부터 시작" -->
+		<div style="position:absolute; bottom:1vh; right: 1vw; cursor:pointer;"><img src="img/close.png" alt="Close" onClick="ModalClose2();" /></div>
+		<div style="vertical-align:middle; text-align:center;height:100%;">
+				<!--스크롤이 생기는 경우 세로값은 이미지 세로크기, 스크롤 안생기는 경우 세로값은 662px-->
+				<!-- src="../partZoom/page6_1.html" 부분확대 링크 위치 -->
+				<iframe border="0" frameborder="0" src="game/page1.html" scrolling="no" style="width:100%;height:100%;"></iframe>
+			</div>
+	</div>
+</div>
+  
+  <!--div id="mies2" class="game" style="display:none;position:absolute; margin-top: -60px;z-index:20000;">
+  <div class="closeBtn_game"><img src="../images/close.png" alt="Close" onClick="ModalClose2();" /></div>
+  <iframe border="0" frameborder="0" src="../game/page1.html" scrolling="no" style="width:990px;height:670px;"></iframe>
+  </div-->
+  
+  
+<audio id="myAudio">
+    <source src="">
+  </audio>
+</div>
+
+
+</div>
+
+<script type="text/javascript">
+	var overlay;
+	function Overlay() {
+		overlay = $("image[rel]").overlay({
+			mask: {
+				color: '#000',
+				loadSpeed: 200,
+				opacity: 0.5,
+			},
+			closeOnClick: false
+		});	
+	}
+	
+	function ModalClose() {
+		$('.card').remove();
+		location.reload();
+		overlay.eq(0).overlay().close(); 
+	}
+	
+	function ModalClose2() {
+		$('.game').remove();
+		location.reload();
+		overlay.eq(0).overlay().close(); 
+	}
+	
+	$(document).ready(function() {
+		Overlay();
+	});
+	
+	// 애니메이션 
+	function ModalClose3(i) {
+		$('.fm').remove();
+		location.reload();
+		overlay.eq(1).overlay().close(); 
+		
+		$("#if_"+i).attr("src","");
+	}
+	
+	$(document).ready(function() {
+				
+		$("img[rel]").each(function() {
+			$(this).bind("click", function() {
+				var rel = $(this).attr("rel");
+				var arr = rel.split("#");
+				var data = arr[1];
+				if(data == "mies3") {
+					var page = "../movie/page2.html";
+				} else if(data = "mies4") {
+					var page = "../movie/page2.html";
+				}				
+				$("#if_"+data).attr("src",page);
+				
+				$("#mies3").css("top","110px");
+			});
+		});
+		
+		Overlay();
+	});
+	
+</script>
+
+</body>
+</ht>
